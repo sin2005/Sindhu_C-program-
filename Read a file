@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void readFile(const char *filename);
+
+int main() {
+    const char *filename = "example.txt"; // Specify the file name
+    
+  
+    readFile(filename);
+    
+    return 0;
+}
+
+void readFile(const char *filename) {
+    FILE *file = fopen(filename, "r"); // Open the file in read mode
+    char ch;
+    
+    if (file == NULL) {
+        printf("Error: Could not open file %s for reading.\n", filename);
+        return;
+    }
+    
+  
+    while ((ch = fgetc(file)) != EOF) {
+        putchar(ch); // Output the character to the console
+    }
+    
+    fclose(file); // Close the file
+}
