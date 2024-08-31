@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+#define SIZE 5  
+
+
+void initializeArray(int arr[], int size);
+void displayArray(int arr[], int size);
+int calculateSum(int arr[], int size);
+int findMax(int arr[], int size);
+int findMin(int arr[], int size);
+
+int main() {
+    int numbers[SIZE];
+    
+  
+    initializeArray(numbers, SIZE);
+    
+  
+    printf("Array elements: ");
+    displayArray(numbers, SIZE);
+    
+    
+    int sum = calculateSum(numbers, SIZE);
+    printf("Sum of array elements: %d\n", sum);
+    
+    //
+    int max = findMax(numbers, SIZE);
+    printf("Maximum value in the array: %d\n", max);
+    
+    
+    int min = findMin(numbers, SIZE);
+    printf("Minimum value in the array: %d\n", min);
+    
+    return 0;
+}
+
+
+void initializeArray(int arr[], int size) {
+    printf("Enter %d numbers:\n", size);
+    for (int i = 0; i < size; i++) {
+        printf("Element %d: ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+}
+void displayArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
