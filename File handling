@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+void writeFile(const char *filename);
+void readFile(const char *filename);
+void appendFile(const char *filename);
+
+int main() {
+    const char *filename = "example.txt";
+    
+    
+    writeFile(filename);
+    
+
+    printf("Reading data from file:\n");
+    readFile(filename);
+    
+  
+    printf("\nAppending data to file:\n");
+    appendFile(filename);
+    
+    
+    printf("Reading updated data from file:\n");
+    readFile(filename);
+    
+    return 0;
+}
+
+
+void writeFile(const char *filename) {
+    FILE *file = fopen(filename, "w");
+    
+    if (file == NULL) {
+        printf("Error opening file for writing.\n");
+        return;
+    }
+    
+    fprintf(file, "This is the initial content of the file.\n");
+    fclose(file);
+}
+
+
+void readFile(const char *filename) {
+    FILE *file = fopen(filename, "r");
+    char ch;
+    
+    if (file == NULL) {
+        printf("Error opening file for reading.\n");
+        return;
+    }
+    
+    while ((ch = fgetc(file)) != EOF) {
+        putchar(ch);
+    }
+    
+    fclose(file);
+}
+
+void appendFile(const char *filename) {
+    FILE *file = fopen(filename, "a");
+    
+    if (file == NULL) {
+        printf("Error opening file for appending.\n");
+        return;
+    }
+    
+    fprintf(file, "This is appended content.\n");
+    fclose(file);
+}
