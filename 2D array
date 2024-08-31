@@ -1,0 +1,77 @@
+#include <stdio.h>
+
+void initializeArray(int arr[][3], int rows, int cols);
+void displayArray(int arr[][3], int rows, int cols);
+int calculateSum(int arr[][3], int rows, int cols);
+void rowSums(int arr[][3], int rows, int cols);
+void colSums(int arr[][3], int rows, int cols);
+
+int main() {
+    int rows = 3, cols = 3; // Define the dimensions of the 2D array
+    int arr[rows][cols];
+    
+    printf("Enter values for a %dx%d matrix:\n", rows, cols);
+    initializeArray(arr, rows, cols);
+    
+    printf("The matrix is:\n");
+    displayArray(arr, rows, cols);
+    
+    int totalSum = calculateSum(arr, rows, cols);
+    printf("Sum of all elements: %d\n", totalSum);
+    
+    printf("Sum of each row:\n");
+    rowSums(arr, rows, cols);
+    
+    printf("Sum of each column:\n");
+    colSums(arr, rows, cols);
+    
+    return 0;
+}
+void initializeArray(int arr[][3], int rows, int cols) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("Element [%d][%d]: ", i, j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+}
+
+void displayArray(int arr[][3], int rows, int cols) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int calculateSum(int arr[][3], int rows, int cols) {
+    int sum = 0;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            sum += arr[i][j];
+        }
+    }
+    return sum;
+}
+
+void rowSums(int arr[][3], int rows, int cols) {
+    for (int i = 0; i < rows; i++) {
+        int rowSum = 0;
+        for (int j = 0; j < cols; j++) {
+            rowSum += arr[i][j];
+        }
+        printf("Sum of row %d: %d\n", i, rowSum);
+    }
+}
+
+// Function to calculate and display the sum of each column
+void colSums(int arr[][3], int rows, int cols) {
+    for (int j = 0; j < cols; j++) {
+        int colSum = 0;
+        for (int i = 0; i < rows; i++) {
+            colSum += arr[i][j];
+        }
+        printf("Sum of column %d: %d\n", j, colSum);
+    }
+}
