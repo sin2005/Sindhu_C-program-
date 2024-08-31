@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+// Function prototype
+void printFibonacci(int terms);
+
+int main() {
+    int terms;
+    
+    // Input the number of terms from the user
+    printf("Enter the number of terms for the Fibonacci series: ");
+    scanf("%d", &terms);
+    
+    // Print the Fibonacci series
+    printFibonacci(terms);
+    
+    return 0;
+}
+
+// Function to print Fibonacci series up to 'terms' number of terms
+void printFibonacci(int terms) {
+    int a = 0, b = 1, next;
+    
+    // Print the first term
+    if (terms >= 1) {
+        printf("%d ", a);
+    }
+    
+    // Print the second term if needed
+    if (terms >= 2) {
+        printf("%d ", b);
+    }
+    
+    // Generate and print the remaining terms
+    for (int i = 3; i <= terms; i++) {
+        next = a + b;
+        printf("%d ", next);
+        a = b;
+        b = next;
+    }
+    
+    printf("\n");  // Newline after printing the series
+}
