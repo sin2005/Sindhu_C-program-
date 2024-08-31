@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    // Define two strings to be compared
+    char str1[] = "hello";
+    char str2[] = "world";
+    
+    // Compare the strings
+    int result = strcmp(str1, str2);
+    
+    // Output the result of the comparison
+    if (result < 0) {
+        printf("\"%s\" is less than \"%s\"\n", str1, str2);
+    } else if (result > 0) {
+        printf("\"%s\" is greater than \"%s\"\n", str1, str2);
+    } else {
+        printf("\"%s\" is equal to \"%s\"\n", str1, str2);
+    }
+    
+    return 0;
+}
