@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int rows;
+    
+    // Input the number of rows for the pattern
+    printf("Enter the number of rows: ");
+    scanf("%d", &rows);
+    
+    // Loop through each row
+    for (int i = 1; i <= rows; i++) {
+        // Print leading spaces for alignment
+        for (int j = rows; j > i; j--) {
+            printf(" ");
+        }
+        
+        // Print stars for the current row
+        for (int k = 1; k <= (2 * i - 1); k++) {
+            printf("*");
+        }
+        
+        // Move to the next line after each row is printed
+        printf("\n");
+    }
+    
+    return 0;
+}
