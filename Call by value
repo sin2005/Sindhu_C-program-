@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+// Function prototype
+void addTen(int num);
+
+int main() {
+    int number;
+    
+    // Input an integer from the user
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    
+    // Output the value before calling the function
+    printf("Before adding ten: %d\n", number);
+    
+    // Call the function with the value of 'number'
+    addTen(number);
+    
+    // Output the value after calling the function
+    printf("After adding ten: %d\n", number);
+    
+    return 0;
+}
+
+// Function to add ten to a number (call by value)
+void addTen(int num) {
+    num += 10;  // Add ten to the copy of the number
+    printf("Inside function: %d\n", num);  // Print the modified copy
+}
