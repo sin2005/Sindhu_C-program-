@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+// Function to swap integers (call by value)
+void swapByValue(int a, int b) {
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+    
+    // Print swapped values inside the function
+    printf("Inside swapByValue function: a = %d, b = %d\n", a, b);
+}
+
+int main() {
+    int x, y;
+    
+    // Input two integers from the user
+    printf("Enter first number (x): ");
+    scanf("%d", &x);
+    printf("Enter second number (y): ");
+    scanf("%d", &y);
+    
+    // Output the values before swapping
+    printf("Before swapping: x = %d, y = %d\n", x, y);
+    
+    // Call the swapByValue function
+    swapByValue(x, y);
+    
+    // Output the values after calling the function
+    printf("After swapByValue function: x = %d, y = %d\n", x, y);
+    
+    return 0;
+}
